@@ -7,60 +7,69 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+ligue o apache e o mysql no xamp
+crie um banco com nome->todo_list
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1-clone o projeto
+2-abra o projeto em seu editor de texto,copie o texto excrito em '.env.exemple.', crie um arquivo com o nome -> '.env' e cole
+3-na raiz  do projeto,rode o comando -> composer install
+4-rode o comando -> php artisan migrate, para criar as tabelas
+5-rode o comando -> php artisan serve para iniciar.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+instale o postman para testar as rotas
+https://www.postman.com/downloads/
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+TODO LIST - Laravel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Desafio 1
+Criar uma lista (FEITO)
+Compartilhar uma lista (FEITO)
+Deletar uma lista (FEITO)
+Adicionar tarefas na lista (FEITO)
+Concluir tarefas na lista (FEITO)
+Remover uma tarefa (FEITO)
+Somente pessoas autorizadas poderão cadastrar outros usuarios (NÃO FEITO)
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+como usar?
 
-### Premium Partners
+1- crie um usuario (post)
+        localhoost/api/criarUsuario (nome_usuario
+                                     senha_usuario|required|min:8|
+                                     cargo)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+2-crie uma lista (post)
+        localhoost/api/criar (fk_usuario,
+                              nome_lista)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+3-crie uma tarefa (post) 
+        localhoost/api/criarTarefa (id_lista,
+                                    nome_tarefa)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+4-concluir tarefa (patch)
+        localhoost/api/concluir/{id_tarefa}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+5-deletar tarefa (delete)
+        localhoost/api/deletarTarefa/{id_tarefa}
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+6-deletar lista(delete)
+        localhoost/api/deletar/{id_lista}
+
+
+7-compartilhar lista (post)
+        localhoost/api/compartilhar
+                                (id_send_usuario,
+                                 id_lista,
+                                    id_receiver_usuario)
+
+8-Vizualizar suas lista (get)
+        localhoost/api/verLista/{id_usuario}
